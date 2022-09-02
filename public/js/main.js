@@ -6,6 +6,30 @@ const imageFile = document.getElementById("image-file");
 const previewImg = document.getElementById("preview-img");
 const base64 = document.getElementById("base64");
 
+const topTextPreview = document.getElementById("top-text-preview");
+const bottomTextPreview = document.getElementById("bottom-text-preview");
+const topTextInput = document.getElementById("top-text-input");
+const bottomTextInput = document.getElementById("bottom-text-input");
+
+topTextInput.addEventListener("keyup", (e) => previewMemeText(e));
+bottomTextInput.addEventListener("keyup", (e) => previewMemeText(e));
+
+function previewMemeText(e) {
+  switch (e.target.name) {
+    case "topCaption":
+      topTextPreview.innerText = e.target.value;
+      break;
+    case "bottomCaption":
+      bottomTextPreview.innerText = e.target.value;
+      break;
+    default:
+      break;
+  }
+
+  console.log(e.target.name);
+  console.log(e.target.value);
+}
+
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
 });
