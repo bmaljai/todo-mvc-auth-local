@@ -13,3 +13,18 @@ h1 {
   max-height: 200px;
   max-width: 30%;
 }
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 30%;
+  font-size: 2rem;
+}
+
+.todoItem img {
+  max-height: 200px;
+  max-width: 30%;
+}

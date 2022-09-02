@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
+      <% todos.forEach( el => { %>
+      <li class="todoItem" data-id="<%=el._id%>">
+        <span><%= el.topCaption %></span>
+        <img src="<%= el.imageURL %>" />
+        <span><%= el.bottomCaption %></span>
+      </li>
+      <% }) %>
     </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="file" id='image-file' name="image-file" accept="image/*">
-        <img id="preview-img">
-        <input type="submit">
+    <form action="/todos/createTodo" method="POST">
+      <input type="text" placeholder="Top Caption" name="topCaption" />
+      <input type="text" placeholder="Bottom Caption" name="bottomCaption" />
+      <input type="file" id="image-file" name="imageUrl" accept="image/*" />
+      <input type="hidden" id="base64" name="base64" />
+      <img id="preview-img" />
+      <input type="submit" />
     </form>
 
     <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
