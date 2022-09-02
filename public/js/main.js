@@ -1,8 +1,10 @@
 const deleteBtn = document.querySelectorAll(".del");
 const todoItem = document.querySelectorAll("span.not");
 const todoComplete = document.querySelectorAll("span.completed");
+
 const imageFile = document.getElementById("image-file");
 const previewImg = document.getElementById("preview-img");
+const base64 = document.getElementById("base64");
 
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteTodo);
@@ -28,6 +30,7 @@ function previewFile(file) {
   reader.readAsDataURL(file);
   reader.onloadend = () => {
     previewImg.src = reader.result;
+    base64.setAttribute("value", reader.result);
   };
 }
 
