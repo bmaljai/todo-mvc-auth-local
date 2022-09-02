@@ -18,7 +18,7 @@ require("./config/passport")(passport);
 // we go get
 // test 56
 
-connectDB()
+connectDB();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
