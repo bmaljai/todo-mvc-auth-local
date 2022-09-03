@@ -10,6 +10,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const todoRoutes = require("./routes/todos");
 const viewDB = require('./routes/view')
+const bodyParser = require('body-parser');
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -21,6 +22,8 @@ require("./config/passport")(passport);
 
 connectDB();
 
+app.use(bodyParser.json({limit: "10mb"}));
+app.use(bodyParser.urlencoded({limit: "10mb", extended: true, parameterLimit:50000}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
