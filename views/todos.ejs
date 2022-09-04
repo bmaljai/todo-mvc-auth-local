@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -18,33 +24,32 @@
         <div class='collapse navbar-collapse' id='navmenu'>
           <ul class="navbar-nav ms-auto">
             <li class='nav-item'>
-              <a href='/login' class='nav-link mx-2'>Login</a></li>
-              <li class='nav-item'>
-                <a href='/signup' class='nav-link mx-2'>Sign Up</a>
-                </li>
-              </a>
-            </li>
-          </ul>
+              <a href='/logout' class='nav-link mx-2'>Logout</a></li>
+              </ul>
         </div>
       </container>
     </nav>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <section class='bg-primary bg-gradient w-100 min-vh-100'>
 
-    <form action="/todos/createTodo" method="POST">
-      <input type="text" id="top-text-input" placeholder="Top Caption" name="topCaption" value=''/>
-      <input type="text" id="bottom-text-input" placeholder="Bottom Caption" name="bottomCaption" value=''/>
-      <input type="file" id="image-file" name="imageUrl" accept="image/*" />
+    <div class='container p-5'>
+    <form action="/todos/createTodo" method="POST" class='d-flex flex-column align-items-center'>
+      <input type="text" id="top-text-input" placeholder="Top Caption" name="topCaption" class='w-25' value=''/>
+      <input type="text" id="bottom-text-input" placeholder="Bottom Caption" class='mt-1 w-25' name="bottomCaption" value=''/>
+      <input type="file" id="image-file" name="imageUrl"  class='mt-1 form-control w-25' accept="image/*" />
       <input type="hidden" id="base64" name="base64" />
-      <li class="todoItem">
+      <li class="todoItem d-flex flex-row">
         <span id='top-text-preview' class="caption top"></span>
-        <img id='preview-img' class='meme-img' />
+        <img id='preview-img' class='meme-img mt-3' />
         <span id='bottom-text-preview' class="caption bottom"></span>
       </li>
-      <input type="submit" />
+      <input type="submit"  class='btn-lg btn-dark mt-3'/>
     </form>
+  </div>
 
-    <h1>Todos</h1>
+
+    <div class='container p-3 d-flex flex-column justify-content-center align-items-center'>
+      <h2 class='pb-4'>Your Memes</h2>
     <ul class="todo-container">
       <% todos.forEach( el => { %>
       <li class="todoItem" data-id="<%=el._id%>">
@@ -54,8 +59,8 @@
       </li>
       <% }) %>
     </ul>
-
-    <a href="/logout">Logout</a>
+  </div>
+  </section>
 
     <script src="js/main.js"></script>
   </body>

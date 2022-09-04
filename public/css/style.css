@@ -17,13 +17,24 @@ h1 {
 }
 
 .todo-container {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 3rem;
+}
+
+.todoItemTop {
+  gap: 1rem;
+  width: 30%;
+  font-size: 2rem;
+  height: 300px;
+  width: 250px;
+  white-space: nowrap;
+  color: white;
+  font-weight: 600;
 }
 
 .todoItem {
