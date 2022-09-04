@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const TodoSchema = new mongoose.Schema({
+const MemeSchema = new mongoose.Schema({
   topCaption: {
     type: String,
     required: true,
@@ -19,4 +19,4 @@ const TodoSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Todo", TodoSchema);
+module.exports = mongoose.model("Meme", MemeSchema);

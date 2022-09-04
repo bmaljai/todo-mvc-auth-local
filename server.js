@@ -8,7 +8,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const todoRoutes = require("./routes/todos");
+const memeRoutes = require("./routes/memes");
 const viewDB = require("./routes/view");
 const bodyParser = require("body-parser");
 
@@ -16,9 +16,6 @@ require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
-
-// we go get
-// test 56
 
 connectDB();
 
@@ -52,7 +49,7 @@ app.use(passport.session());
 app.use(flash());
 
 app.use("/", mainRoutes);
-app.use("/todos", todoRoutes);
+app.use("/memes", memeRoutes);
 app.use("/view", viewDB);
 
 app.listen(process.env.PORT, () => {

@@ -33,12 +33,12 @@
     <section class='bg-primary bg-gradient w-100 min-vh-100'>
 
     <div class='container p-5'>
-    <form action="/todos/createTodo" method="POST" class='d-flex flex-column align-items-center'>
+    <form action="/memes/createMeme" method="POST" class='d-flex flex-column align-items-center'>
       <input type="text" id="top-text-input" placeholder="Top Caption" name="topCaption" class='w-25' value=''/>
       <input type="text" id="bottom-text-input" placeholder="Bottom Caption" class='mt-1 w-25' name="bottomCaption" value=''/>
       <input type="file" id="image-file" name="imageUrl"  class='mt-1 form-control w-25' accept="image/*" />
       <input type="hidden" id="base64" name="base64" />
-      <li class="todoItem d-flex flex-row">
+      <li class="memeItem d-flex flex-row">
         <span id='top-text-preview' class="caption top"></span>
         <img id='preview-img' class='meme-img mt-3' />
         <span id='bottom-text-preview' class="caption bottom"></span>
@@ -50,14 +50,15 @@
 
     <div class='container p-3 d-flex flex-column justify-content-center align-items-center'>
       <h2 class='pb-4'>Your Memes</h2>
-    <ul class="todo-container">
-      <% todos.forEach( el => { %>
-      <li class="todoItem" data-id="<%=el._id%>">
+    <ul class="meme-container">
+      <% memes.forEach( el => { %>
+      <li class="memeItem" data-id="<%=el._id%>">
         <span class="caption top"><%= el.topCaption %></span>
         <img class='meme-img' src="<%= el.imageURL %>" />
         <span class="caption bottom"><%= el.bottomCaption %></span>
       </li>
       <% }) %>
+      <% console.log(memes) %>
     </ul>
   </div>
   </section>
