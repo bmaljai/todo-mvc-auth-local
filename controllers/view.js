@@ -1,4 +1,4 @@
-const Todo = require('../models/Todo')
+const Todo = require('../models/Meme')
 const User = require('../models/User')
 
 module.exports = {
